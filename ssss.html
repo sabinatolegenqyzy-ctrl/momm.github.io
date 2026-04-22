@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IT Family Project</title>
+    <style>
+        :root {
+            --bg: #0d1117;
+            --card-bg: #161b22;
+            --accent: #00d4ff; /* Неоновый голубой */
+            --text: #e6edf3;
+            --neon-shadow: 0 0 15px rgba(0, 212, 255, 0.4);
+        }
+
+        body {
+            background-color: var(--bg);
+            color: var(--text);
+            font-family: 'Courier New', Courier, monospace; /* Шрифты как в коде */
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 50px 20px;
+            border-bottom: 2px solid var(--accent);
+            width: 100%;
+            background: linear-gradient(180deg, #161b22 0%, #0d1117 100%);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--accent);
+            text-shadow: var(--neon-shadow);
+            margin-bottom: 10px;
+        }
+
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 50px;
+            max-width: 1200px;
+        }
+
+        /* Контейнер для фото */
+        .photo-box {
+            background: var(--card-bg);
+            border: 1px solid #30363d;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.4s ease;
+            position: relative;
+        }
+
+        .photo-box:hover {
+            border-color: var(--accent);
+            transform: scale(1.03);
+            box-shadow: var(--neon-shadow);
+        }
+
+        .photo-box img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-label {
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9rem;
+            background: rgba(0, 0, 0, 0.5);
+            color: var(--accent);
+        }
+
+        .secret-area {
+            margin-bottom: 100px;
+            text-align: center;
+        }
+
+        #terminal-btn {
+            background: #238636;
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.2rem;
+            border-radius: 8px;
+            cursor: pointer;
+            box-shadow: 0 4px 0 #1a6328;
+        }
+
+        #terminal-btn:active {
+            box-shadow: none;
+            transform: translateY(4px);
+        }
+
+        #access-granted {
+            display: none;
+            margin-top: 30px;
+            padding: 30px;
+            border: 1px dashed var(--accent);
+            background: #161b22;
+            max-width: 600px;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>>BRRR BRR BATAPIM</h1>
+        <p>Система готова к демонстрации. Статус: Online</p>
+    </header>
+
+    <div class="gallery">
+
+        <div class="photo-box">
+            <img src="dias01.jpg" alt="Photo 1" onerror="this.src='https://via.placeholder.com/400x300/161b22/00d4ff?text=МЕСТО+ДЛЯ+ФОТО+1'">
+            <div class="photo-label"></div>
+        </div>
+        <div class="photo-box">
+            <img src="dias02.jpg" alt="Photo 2" onerror="this.src='https://via.placeholder.com/400x300/161b22/00d4ff?text=МЕСТО+ДЛЯ+ФОТО+2'">
+            <div class="photo-label"></div>
+        </div>
+        <div class="photo-box">
+            <img src="dias03.jpg" alt="Photo 3" onerror="this.src='https://via.placeholder.com/400x300/161b22/00d4ff?text=МЕСТО+ДЛЯ+ФОТО+3'">
+            <div class="photo-label"></div>
+        </div>
+        </div>
+
+    <div class="secret-area">
+        <button id="terminal-btn">ВЫПОЛНИТЬ КОМАНДУ:</button>
+        
+        <div id="access-granted">
+            <h2 style="color: #238636;">[ДОСТУП РАЗРЕШЕН]</h2>
+<p>Этот проект был создан старшей дочерью в процессе изучения веб-разработки.</p>
+            <p>Технологический стек: <b>HTML5, CSS3 Modern, JavaScript ES6</b>.</p>
+            <p>Мама, папа, спасибо за поддержку! Это только начало моего пути в IT.</p>
+        </div>
+    </div>
+
+    <script>
+        const btn = document.getElementById('terminal-btn');
+        const content = document.getElementById('access-granted');
+
+        btn.addEventListener('click', () => {
+            content.style.display = 'block';
+            btn.style.display = 'none';
+            // Эффект прокрутки вниз к сообщению
+            content.scrollIntoView({ behavior: 'smooth' });
+        });
+    </script>
+
+</body>
+</html>
